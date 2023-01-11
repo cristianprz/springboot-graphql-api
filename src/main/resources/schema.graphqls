@@ -1,0 +1,32 @@
+type Query {
+  allCustomers: [Customer]
+  allAddressess: [Addresses]
+  addresses(id: ID!): Addresses
+  customer(id: ID!): Customer
+}
+
+type Mutation {
+  addCustomer(name: String!, age: Int!): Customer!
+  updateCustomer(id: ID!, name: String!,age: Float): Customer!
+  deleteCustomer(id: ID!): Boolean
+  addAddresses(zip_code: String!, number: Float!, customer_id: ID!): Addresses!
+  updateAddresses(id: ID!, name: String!,number: Float!): Addresses!
+  deleteAddresses(id: ID!): Boolean
+}
+
+type Customer {
+  id: ID
+  name: String!
+  age: Int
+  registration_date: String
+  last_update: String
+
+}
+
+
+type Addresses {
+  id: ID
+  zip_code: String!
+  number: Float!
+  customer: Customer!
+}
